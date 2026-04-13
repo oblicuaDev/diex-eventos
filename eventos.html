@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portafolio de eventos - DIEX Eventos Colombia"
+    />
+    <title>Eventos - DIEX Eventos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -9999px;
+        left: var(--space-4);
+        background: var(--color-molten-orange);
+        color: #fff;
+        padding: var(--space-2) var(--space-4);
+        border-radius: var(--radius-md);
+        z-index: 9999;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        top: var(--space-4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <main id="main-content" class="pt-20">
+      <!-- HERO -->
+      <section
+        class="page-hero scroll-anim"
+        id="hero-section"
+        aria-labelledby="eventos-heading"
+      >
+        <div class="container section-center">
+          <h1 class="section-heading" id="eventos-heading">
+            Nuestros <span class="text-primary">Eventos</span>
+          </h1>
+          <p class="section-subtext">
+            Explora nuestro portafolio de eventos exitosos. Cada proyecto es una
+            historia de innovación, creatividad y resultados excepcionales.
+          </p>
+        </div>
+      </section>
+
+      <!-- FILTROS -->
+      <section
+        class="py-8 bg-darkest"
+        style="border-bottom: 1px solid rgba(51, 51, 51, 0.3)"
+        aria-label="Filtros de categoría"
+      >
+        <div class="container">
+          <!-- Desktop -->
+          <div
+            class="filter-bar"
+            role="group"
+            aria-label="Filtrar por categoría"
+            id="filter-bar-desktop"
+          ></div>
+
+          <!-- Mobile dropdown -->
+          <div class="filter-dropdown">
+            <button
+              class="filter-dropdown__toggle"
+              id="filter-toggle"
+              aria-expanded="false"
+              aria-controls="filter-menu"
+            >
+              <span id="filter-current-label">Todos</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+              </svg>
+            </button>
+            <div
+              class="filter-dropdown__menu"
+              id="filter-menu"
+              role="listbox"
+              aria-label="Categorías"
+            ></div>
+          </div>
+
+          <p class="results-count" aria-live="polite">
+            Mostrando
+            <strong id="results-count" style="color: var(--color-molten-orange)"
+              >0</strong
+            >
+            eventos
+          </p>
+        </div>
+      </section>
+
+      <!-- GRID EVENTOS -->
+      <section
+        class="py-16 scroll-anim"
+        id="events-grid-section"
+        aria-label="Lista de eventos"
+      >
+        <div class="container">
+          <div class="events-grid" id="events-grid"></div>
+          <div
+            class="empty-state"
+            id="empty-state"
+            style="display: none"
+            aria-live="polite"
+          >
+            No se encontraron eventos en esta categoría.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/events-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const { initScrollAnimation, initScrollReveal } = window.DiexAnimations;
+        initScrollAnimation(document.getElementById("hero-section"), {
+          zoomIntensity: 0.1,
+          threshold: 0.3,
+        });
+        initScrollAnimation(document.getElementById("events-grid-section"), {
+          zoomIntensity: 0.05,
+          threshold: 0.1,
+        });
+
+        let selectedCategory = "Todos";
+
+        /* Construir filtros */
+        const barDesktop = document.getElementById("filter-bar-desktop");
+        const menu = document.getElementById("filter-menu");
+
+        window.DIEX_CATEGORIES.forEach((cat) => {
+          /* Desktop */
+          const btn = document.createElement("button");
+          btn.className =
+            "filter-btn" + (cat === selectedCategory ? " is-active" : "");
+          btn.textContent = cat;
+          btn.setAttribute(
+            "aria-pressed",
+            cat === selectedCategory ? "true" : "false",
+          );
+          btn.addEventListener("click", () => selectCategory(cat));
+          barDesktop.appendChild(btn);
+
+          /* Mobile */
+          const item = document.createElement("button");
+          item.className =
+            "filter-dropdown__item" +
+            (cat === selectedCategory ? " is-active" : "");
+          item.textContent = cat;
+          item.setAttribute("role", "option");
+          item.setAttribute(
+            "aria-selected",
+            cat === selectedCategory ? "true" : "false",
+          );
+          item.addEventListener("click", () => {
+            selectCategory(cat);
+            closeDropdown();
+          });
+          menu.appendChild(item);
+        });
+
+        /* Toggle dropdown móvil */
+        const toggle = document.getElementById("filter-toggle");
+        toggle.addEventListener("click", () => {
+          const open = menu.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", String(open));
+        });
+
+        function closeDropdown() {
+          menu.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+
+        function selectCategory(cat) {
+          selectedCategory = cat;
+          document.getElementById("filter-current-label").textContent = cat;
+
+          /* Actualizar botones */
+          barDesktop.querySelectorAll(".filter-btn").forEach((b) => {
+            const active = b.textContent === cat;
+            b.classList.toggle("is-active", active);
+            b.setAttribute("aria-pressed", String(active));
+          });
+          menu.querySelectorAll(".filter-dropdown__item").forEach((b) => {
+            const active = b.textContent === cat;
+            b.classList.toggle("is-active", active);
+            b.setAttribute("aria-selected", String(active));
+          });
+
+          renderEvents();
+        }
+
+        function renderEvents() {
+          const grid = document.getElementById("events-grid");
+          const empty = document.getElementById("empty-state");
+          const countEl = document.getElementById("results-count");
+
+          const filtered =
+            selectedCategory === "Todos"
+              ? window.DIEX_EVENTS
+              : window.DIEX_EVENTS.filter(
+                  (e) => e.category === selectedCategory,
+                );
+
+          countEl.textContent = filtered.length;
+
+          if (filtered.length === 0) {
+            grid.innerHTML = "";
+            empty.style.display = "block";
+            return;
+          }
+
+          empty.style.display = "none";
+          grid.innerHTML = filtered
+            .map((e) => window.buildEventCard(e))
+            .join("");
+
+          grid.querySelectorAll(".event-card").forEach((card, i) => {
+            initScrollReveal(card, i * 100);
+          });
+        }
+
+        renderEvents();
+      });
+    </script>
+  </body>
+</html>

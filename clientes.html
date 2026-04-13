@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nuestros clientes - DIEX Eventos Colombia"
+    />
+    <title>Clientes - DIEX Eventos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -9999px;
+        left: var(--space-4);
+        background: var(--color-molten-orange);
+        color: #fff;
+        padding: var(--space-2) var(--space-4);
+        border-radius: var(--radius-md);
+        z-index: 9999;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        top: var(--space-4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <main id="main-content" class="pt-20">
+      <!-- HERO -->
+      <section
+        class="page-hero scroll-anim"
+        id="hero-section"
+        aria-labelledby="clientes-heading"
+      >
+        <div
+          class="container section-center"
+          style="max-width: 56rem; margin-inline: auto"
+        >
+          <h1 class="section-heading" id="clientes-heading">
+            Clientes Que <span class="text-primary">Confían en Nosotros</span>
+          </h1>
+          <p class="section-subtext">
+            Trabajamos con las marcas más importantes de Colombia y América
+            Latina, construyendo relaciones de largo plazo basadas en resultados
+            excepcionales.
+          </p>
+        </div>
+      </section>
+
+      <!-- SLIDER CLIENTES -->
+      <section
+        class="clients-section clients-section--light scroll-anim"
+        id="clients-section"
+        aria-labelledby="marcas-heading"
+      >
+        <div class="container">
+          <div class="section-center mb-12">
+            <span class="section-label">Nuestros Clientes</span>
+            <h2 style="color: var(--color-neutral-darkest)" id="marcas-heading">
+              Marcas Líderes
+            </h2>
+          </div>
+          <div
+            class="clients-slider-target clients-slider-wrap"
+            aria-label="Logos de clientes"
+          >
+            <div class="clients-track" role="list" aria-live="off"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section
+        class="py-24 clients-stats-section scroll-anim"
+        id="stats-section"
+        aria-label="Estadísticas de clientes"
+      >
+        <div class="container">
+          <div class="stats-grid stats-grid--home">
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="200"
+                data-duration="2500"
+                data-suffix="+"
+              >
+                0+
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Clientes Activos
+              </div>
+            </div>
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="94"
+                data-duration="2500"
+                data-suffix="%"
+              >
+                0%
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Clientes Recurrentes
+              </div>
+            </div>
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="99"
+                data-duration="2500"
+                data-suffix="%"
+              >
+                0%
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Tasa de Satisfacción
+              </div>
+            </div>
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="12"
+                data-duration="2000"
+                data-suffix="+"
+              >
+                0+
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Años en el Mercado
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/events-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const { initScrollAnimation } = window.DiexAnimations;
+
+        initScrollAnimation(document.getElementById("hero-section"), {
+          zoomIntensity: 0.1,
+          threshold: 0.3,
+        });
+
+        initScrollAnimation(document.getElementById("clients-section"), {
+          zoomIntensity: 0.08,
+          threshold: 0.2,
+        });
+
+        initScrollAnimation(document.getElementById("stats-section"), {
+          zoomIntensity: 0.12,
+          threshold: 0.3,
+        });
+      });
+    </script>
+  </body>
+</html>

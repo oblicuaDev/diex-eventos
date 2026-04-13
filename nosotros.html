@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nosotros - DIEX Eventos Colombia, más de 12 años de experiencia en producción de eventos."
+    />
+    <title>Nosotros - DIEX Eventos</title>
+
+    <!-- Fuentes y estilos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -9999px;
+        left: var(--space-4);
+        background: var(--color-molten-orange);
+        color: #fff;
+        padding: var(--space-2) var(--space-4);
+        border-radius: var(--radius-md);
+        z-index: 9999;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        top: var(--space-4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <main id="main-content" class="pt-20">
+      <!-- HERO -->
+      <section
+        class="page-hero scroll-anim"
+        id="hero-section"
+        aria-labelledby="nosotros-heading"
+      >
+        <div
+          class="container section-center"
+          style="max-width: 56rem; margin-inline: auto"
+        >
+          <h1 class="section-heading" id="nosotros-heading">
+            Transformamos Ideas en
+            <span class="text-primary">Experiencias Inolvidables</span>
+          </h1>
+          <p class="section-subtext">
+            Somos un equipo de profesionales apasionados por crear eventos que
+            inspiran, conectan y generan impacto real en las organizaciones.
+          </p>
+        </div>
+      </section>
+
+      <!-- HISTORIA -->
+      <section
+        class="py-24 scroll-anim history-section-bg"
+        id="history-section"
+        aria-labelledby="history-heading"
+      >
+        <div class="container">
+          <div class="history-two-col">
+            <div>
+              <span class="section-label">Nuestra Historia</span>
+              <h2
+                style="
+                  color: var(--color-neutral-darkest);
+                  margin-bottom: var(--space-6);
+                "
+                id="history-heading"
+              >
+                Más de 12 Años Creando Momentos Memorables
+              </h2>
+              <div class="history-paragraphs">
+                <p>
+                  DIEX Eventos nació en 2012 con la visión de transformar la
+                  industria de eventos corporativos en Colombia. Desde nuestros
+                  inicios, nos hemos especializado en crear experiencias que van
+                  más allá de la logística tradicional.
+                </p>
+                <p>
+                  Hemos tenido el privilegio de trabajar con las marcas más
+                  importantes de América Latina, produciendo más de 750 eventos
+                  que han impactado positivamente a miles de personas.
+                </p>
+                <p>
+                  Nuestra filosofía se basa en tres pilares: innovación
+                  constante, atención meticulosa al detalle y compromiso
+                  absoluto con los resultados de nuestros clientes.
+                </p>
+              </div>
+            </div>
+
+            <div class="history-img-grid" aria-hidden="true">
+              <div class="history-img-col">
+                <div class="history-img-item history-img-item--short">
+                  <img
+                    src="https://images.unsplash.com/photo-1550305080-4e029753abcf?w=400"
+                    alt="Equipo DIEX"
+                    loading="lazy"
+                    width="400"
+                    height="192"
+                  />
+                </div>
+                <div class="history-img-item history-img-item--tall">
+                  <img
+                    src="https://images.unsplash.com/photo-1758691736545-5c33b6255dca?w=400"
+                    alt="Evento corporativo"
+                    loading="lazy"
+                    width="400"
+                    height="256"
+                  />
+                </div>
+              </div>
+              <div class="history-img-col history-img-col--offset">
+                <div class="history-img-item history-img-item--tall">
+                  <img
+                    src="https://images.unsplash.com/photo-1740458983830-24bfc1118a05?w=400"
+                    alt="Producción de evento"
+                    loading="lazy"
+                    width="400"
+                    height="256"
+                  />
+                </div>
+                <div class="history-img-item history-img-item--short">
+                  <img
+                    src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400"
+                    alt="Lanzamiento de marca"
+                    loading="lazy"
+                    width="400"
+                    height="192"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VALORES -->
+      <section
+        class="py-24 bg-dark scroll-anim"
+        id="values-section"
+        aria-labelledby="values-heading"
+      >
+        <div class="container">
+          <div class="section-center mb-16">
+            <span class="section-label">Nuestros Valores</span>
+            <h2 class="section-heading" id="values-heading">
+              Lo Que Nos Define
+            </h2>
+          </div>
+          <div class="values-grid" id="values-grid"></div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section
+        class="py-24 clients-stats-section scroll-anim"
+        id="stats-section"
+        aria-label="Estadísticas"
+      >
+        <div class="container">
+          <div class="stats-grid stats-grid--home">
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="750"
+                data-duration="2500"
+                data-suffix="+"
+              >
+                0+
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Eventos Producidos
+              </div>
+            </div>
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="200"
+                data-duration="2500"
+                data-suffix="+"
+              >
+                0+
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Clientes Activos
+              </div>
+            </div>
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="12"
+                data-duration="2000"
+                data-suffix="+"
+              >
+                0+
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Años de Experiencia
+              </div>
+            </div>
+            <div class="stat-item">
+              <div
+                class="stat-item__value stat-item__value--white"
+                data-end="75000"
+                data-duration="3000"
+                data-suffix="+"
+              >
+                0+
+              </div>
+              <div class="stat-item__label stat-item__label--white">
+                Asistentes Impactados
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section
+        class="py-24 bg-dark scroll-anim section-center"
+        id="cta-section"
+        aria-label="Llamada a la acción"
+      >
+        <div class="container" style="max-width: 56rem; margin-inline: auto">
+          <h2 class="section-heading">¿Listo para trabajar con nosotros?</h2>
+          <p class="section-subtext" style="margin-bottom: var(--space-8)">
+            Conversemos sobre tu próximo evento y cómo podemos ayudarte a
+            alcanzar tus objetivos.
+          </p>
+          <a href="contacto.html" class="btn btn--primary btn--lg"
+            >Contáctanos</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/events-data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const { initScrollAnimation, initScrollReveal, initCountUp } =
+          window.DiexAnimations;
+
+        [
+          "hero-section",
+          "history-section",
+          "values-section",
+          "stats-section",
+          "cta-section",
+        ].forEach((id, i) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          const zoom = [0.1, 0.08, 0.08, 0.12, 0.1][i];
+          const threshold = [0.3, 0.2, 0.2, 0.3, 0.3][i];
+          initScrollAnimation(el, { zoomIntensity: zoom, threshold });
+        });
+
+        document.querySelectorAll("[data-end]").forEach((el) => {
+          initCountUp(
+            el,
+            parseInt(el.dataset.end, 10),
+            parseInt(el.dataset.duration, 10) || 2000,
+            el.dataset.suffix || "",
+          );
+        });
+
+        const VALUES = [
+          {
+            svg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12"
+                 cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+            title: "Enfoque en Resultados",
+            desc: "Cada evento está diseñado para alcanzar objetivos medibles y generar valor real.",
+          },
+          {
+            svg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+            title: "Innovación Constante",
+            desc: "Incorporamos las últimas tecnologías y tendencias para crear experiencias únicas.",
+          },
+          {
+            svg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                 <circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+            title: "Trabajo en Equipo",
+            desc: "Colaboración estrecha con nuestros clientes y partners para garantizar el éxito.",
+          },
+          {
+            svg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round"><circle cx="12" cy="8" r="6"/>
+                 <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+            title: "Excelencia",
+            desc: "Atención meticulosa a cada detalle para asegurar eventos impecables.",
+          },
+          {
+            svg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                 <polyline points="17 6 23 6 23 12"/></svg>`,
+            title: "Mejora Continua",
+            desc: "Aprendemos de cada proyecto para evolucionar constantemente.",
+          },
+          {
+            svg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round"><circle cx="12" cy="12" r="10"/>
+                 <line x1="2" y1="12" x2="22" y2="12"/>
+                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
+                          15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+            title: "Visión Global",
+            desc: "Estándares internacionales aplicados al contexto local colombiano.",
+          },
+        ];
+
+        const grid = document.getElementById("values-grid");
+        if (grid) {
+          grid.innerHTML = VALUES.map(
+            (v) => `
+        <article class="value-card" role="article">
+          <div class="value-card__icon-wrap">
+            <span class="value-card__icon">${v.svg}</span>
+          </div>
+          <h3 class="value-card__title">${v.title}</h3>
+          <p class="value-card__desc">${v.desc}</p>
+        </article>`,
+          ).join("");
+
+          grid.querySelectorAll(".value-card").forEach((card, i) => {
+            initScrollReveal(card, i * 100);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
