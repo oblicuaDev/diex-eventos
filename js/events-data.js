@@ -6,7 +6,7 @@ const DIEX_EVENTS = [
     year: "2025",
     city: "Bogotá",
     location: "Bogotá, Colombia",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900",
+    image: "https://images.unsplash.com/photo-1550305080-4e029753abcf?w=400",
     description:
       "Convención anual de ventas para más de 500 asistentes, con agenda de conferencias, workshops y show central.",
     challenge:
@@ -56,7 +56,7 @@ const DIEX_EVENTS = [
     year: "2024",
     city: "Cartagena",
     location: "Cartagena, Colombia",
-    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900",
+    image: "https://images.unsplash.com/photo-1758691736545-5c33b6255dca?w=400",
     description:
       "Summit de innovación con ejecutivos de alto nivel, keynotes internacionales y espacios de networking.",
     challenge:

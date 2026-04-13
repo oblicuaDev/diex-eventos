@@ -12,13 +12,36 @@ window.DiexComponents = (() => {
             <a href="nosotros.html" class="navbar-link" data-nav="nosotros">Nosotros</a>
             <a href="servicios.html" class="navbar-link" data-nav="servicios">Servicios</a>
             <a href="eventos.html" class="navbar-link" data-nav="eventos">Eventos</a>
-            <a href="clientes.html" class="navbar-link" data-nav="clientes">Clientes</a>
-            <a href="contacto.html" class="navbar-link" data-nav="contacto">Contacto</a>
+            <a href="portafolio.html" class="navbar-link" data-nav="portafolio">Portafolio</a>
           </nav>
           <a href="contacto.html" class="navbar-cta">Cotizar Evento</a>
+
+          <!-- Hamburger button (visible only on mobile) -->
+          <button class="navbar-hamburger" id="navbar-hamburger" aria-label="Abrir menú" aria-expanded="false" type="button">
+            <span class="navbar-hamburger__lines">
+              <span class="navbar-hamburger__line"></span>
+              <span class="navbar-hamburger__line"></span>
+              <span class="navbar-hamburger__line"></span>
+            </span>
+          </button>
         </div>
       </div>
     </header>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-mobile-drawer" id="navbar-mobile-drawer" aria-hidden="true" role="dialog" aria-label="Menú de navegación">
+      <a href="index.html" class="navbar-mobile-drawer__brand" aria-label="Ir al inicio de DIEX Eventos">
+        <img src="assets/icons/LogoDiex.png" alt="DIEX Eventos" class="navbar-logo">
+      </a>
+      <nav class="navbar-mobile-drawer__nav" aria-label="Navegación principal móvil">
+        <a href="index.html" class="navbar-mobile-drawer__link" data-nav="home">Inicio</a>
+        <a href="nosotros.html" class="navbar-mobile-drawer__link" data-nav="nosotros">Nosotros</a>
+        <a href="servicios.html" class="navbar-mobile-drawer__link" data-nav="servicios">Servicios</a>
+        <a href="eventos.html" class="navbar-mobile-drawer__link" data-nav="eventos">Eventos</a>
+        <a href="portafolio.html" class="navbar-mobile-drawer__link" data-nav="portafolio">Portafolio</a>
+      </nav>
+      <a href="contacto.html" class="navbar-mobile-drawer__cta">Cotizar Evento</a>
+    </div>
   `;
 
   const FOOTER_HTML = `
@@ -90,8 +113,8 @@ window.DiexComponents = (() => {
       return "nosotros";
     if (path.endsWith("/servicios.html") || path.includes("servicios.html"))
       return "servicios";
-    if (path.endsWith("/clientes.html") || path.includes("clientes.html"))
-      return "clientes";
+    if (path.endsWith("/portafolio.html") || path.includes("portafolio.html"))
+      return "portafolio";
     if (path.endsWith("/contacto.html") || path.includes("contacto.html"))
       return "contacto";
     return "home";
@@ -104,8 +127,9 @@ window.DiexComponents = (() => {
     placeholder.innerHTML = NAVBAR_HTML;
 
     const current = detectCurrentPage();
-    const links = placeholder.querySelectorAll(".navbar-link");
 
+    // Active state for desktop nav
+    const links = placeholder.querySelectorAll(".navbar-link");
     links.forEach((link) => {
       const isActive = link.dataset.nav === current;
       link.classList.toggle("navbar-link--active", isActive);
@@ -115,31 +139,14 @@ window.DiexComponents = (() => {
         link.removeAttribute("aria-current");
       }
     });
-  }
 
-  function mountFooter() {
-    const placeholder = document.getElementById("footer-placeholder");
-    if (!placeholder) return;
-    placeholder.innerHTML = FOOTER_HTML;
-  }
-
-  return {
-    mountNavbar,
-    mountFooter,
-  };
-
-  function mountNavbar() {
-    const placeholder = document.getElementById("navbar-placeholder");
-    if (!placeholder) return;
-
-    placeholder.innerHTML = NAVBAR_HTML;
-
-    const current = detectCurrentPage();
-    const links = placeholder.querySelectorAll(".navbar-link");
-
-    links.forEach((link) => {
+    // Active state for mobile drawer nav
+    const mobileLinks = document.querySelectorAll(
+      ".navbar-mobile-drawer__link",
+    );
+    mobileLinks.forEach((link) => {
       const isActive = link.dataset.nav === current;
-      link.classList.toggle("navbar-link--active", isActive);
+      link.classList.toggle("navbar-mobile-drawer__link--active", isActive);
       if (isActive) {
         link.setAttribute("aria-current", "page");
       } else {
@@ -158,7 +165,63 @@ window.DiexComponents = (() => {
         }
       };
       window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll(); // estado inicial
+      onScroll();
+    }
+
+    // --- Hamburger menu logic ---
+    const hamburger = document.getElementById("navbar-hamburger");
+    const drawer = document.getElementById("navbar-mobile-drawer");
+
+    if (hamburger && drawer) {
+      hamburger.addEventListener("click", () => {
+        const isOpen = drawer.classList.toggle("is-open");
+        hamburger.classList.toggle("is-open", isOpen);
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+        drawer.setAttribute("aria-hidden", String(!isOpen));
+        document.body.classList.toggle("mobile-menu-open", isOpen);
+
+        if (isOpen) {
+          hamburger.setAttribute("aria-label", "Cerrar menú");
+        } else {
+          hamburger.setAttribute("aria-label", "Abrir menú");
+        }
+      });
+
+      // Close drawer when a link is clicked
+      drawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          drawer.classList.remove("is-open");
+          hamburger.classList.remove("is-open");
+          hamburger.setAttribute("aria-expanded", "false");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("mobile-menu-open");
+          hamburger.setAttribute("aria-label", "Abrir menú");
+        });
+      });
+
+      // Close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+          drawer.classList.remove("is-open");
+          hamburger.classList.remove("is-open");
+          hamburger.setAttribute("aria-expanded", "false");
+          drawer.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("mobile-menu-open");
+          hamburger.setAttribute("aria-label", "Abrir menú");
+          hamburger.focus();
+        }
+      });
     }
   }
+
+  function mountFooter() {
+    const placeholder = document.getElementById("footer-placeholder");
+    if (!placeholder) return;
+    placeholder.innerHTML = FOOTER_HTML;
+  }
+
+  return {
+    mountNavbar,
+    mountFooter,
+  };
 })();

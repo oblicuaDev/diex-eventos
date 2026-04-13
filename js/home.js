@@ -75,48 +75,44 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                     stroke-linejoin="round"><rect x="3" y="4" width="18" height="18"
-                     rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8"
-                     y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
-        title: "Eventos Corporativos",
-        desc: "Convenciones, conferencias y reuniones empresariales de alto impacto con producción técnica completa.",
+                     stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>`,
+        title: "Iluminación Profesional",
+        desc: "Diseño y montaje de iluminación escénica, arquitectónica y decorativa con tecnología LED y robótica.",
       },
       {
-        iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                     stroke-linejoin="round"><path d="M12 3l-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/><path d="M17.5 2l-.45 1.37a.47.47 0 0 1-.3.3L15.4 4.1l1.35.43a.47.47 0 0 1 .3.3L17.5 6.2l.45-1.37a.47.47 0 0 1 .3-.3l1.35-.43-1.35-.43a.47.47 0 0 1-.3-.3L17.5 2z" stroke-width="1.5"/><path d="M5 18l-.3.9a.31.31 0 0 1-.2.2l-.9.3.9.3a.31.31 0 0 1 .2.2l.3.9.3-.9a.31.31 0 0 1 .2-.2l.9-.3-.9-.3a.31.31 0 0 1-.2-.2L5 18z" stroke-width="1.5"/></svg>`,
-        title: "Lanzamientos de Marca",
-        desc: "Eventos de lanzamiento memorable que generan expectativa y cobertura mediática para tu producto.",
-      },
-      {
-        iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                     stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9"
-                     cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-        title: "Eventos Institucionales",
-        desc: "Cumbres, galas y ceremonias institucionales con protocolo impecable y experiencia premium.",
+        iconSvg: `<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+        title: "Sonido de Alta Fidelidad",
+        desc: "Sistemas de audio profesional, sonorización en vivo y equipos de amplificación de última generación.",
       },
       {
         iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
                      stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12"
                      cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
-        title: "Activaciones",
-        desc: "Experiencias de marca interactivas que conectan emocionalmente con tu audiencia objetivo.",
+        title: "Pantallas y Proyección",
+        desc: "Pantallas LED de alta resolución, proyectores profesionales y sistemas de video mapping.",
+      },
+      {
+        iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                     stroke-linejoin="round"><path d="M12 3l-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/><path d="M17.5 2l-.45 1.37a.47.47 0 0 1-.3.3L15.4 4.1l1.35.43a.47.47 0 0 1 .3.3L17.5 6.2l.45-1.37a.47.47 0 0 1 .3-.3l1.35-.43-1.35-.43a.47.47 0 0 1-.3-.3L17.5 2z" stroke-width="1.5"/><path d="M5 18l-.3.9a.31.31 0 0 1-.2.2l-.9.3.9.3a.31.31 0 0 1 .2.2l.3.9.3-.9a.31.31 0 0 1 .2-.2l.9-.3-.9-.3a.31.31 0 0 1-.2-.2L5 18z" stroke-width="1.5"/></svg>`,
+        title: "Fotografía y Video",
+        desc: "Registro fotográfico profesional, producción audiovisual y streaming en vivo de alta calidad.",
       },
       {
         iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
                      stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
-        title: "Logística Integral",
-        desc: "Gestión completa de viajes, alojamiento, transporte y coordinación operativa.",
+        title: "Tarimas y Escenografía",
+        desc: "Diseño, construcción y montaje de tarimas, escenarios y estructuras personalizadas.",
       },
       {
         iconSvg: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                     stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>`,
-        title: "Consultoría Estratégica",
-        desc: "Asesoría especializada en conceptualización, diseño de experiencias y estrategia de eventos.",
+                     stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9"
+                     cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        title: "Logística y Coordinación",
+        desc: "Gestión integral de montaje, transporte de equipos, viajes y coordinación operativa completa.",
       },
     ];
 
