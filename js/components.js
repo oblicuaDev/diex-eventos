@@ -1,60 +1,113 @@
 window.DiexComponents = (() => {
   const NAVBAR_HTML = `
-    <header class="navbar" role="banner">
-      <div class="container navbar-inner">
-        <a href="index.html" class="navbar-brand" aria-label="Ir al inicio de DIEX Eventos">
-          <img src="assets/icons/LogoDiex.png" alt="DIEX Eventos" class="navbar-logo">
-        </a>
+  <header class="navbar" role="banner">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand" aria-label="Ir al inicio de DIEX Eventos">
+        <img src="assets/icons/LogoDiex.png" alt="DIEX Eventos" class="navbar-logo">
+      </a>
 
-        <div class="navbar-right">
-          <nav class="navbar-nav" aria-label="Navegación principal">
-            <a href="index.html" class="navbar-link" data-nav="home">Inicio</a>
-            <a href="nosotros.html" class="navbar-link" data-nav="nosotros">Nosotros</a>
-            <a href="servicios.html" class="navbar-link" data-nav="servicios">Servicios</a>
-            <a href="eventos.html" class="navbar-link" data-nav="eventos">Eventos</a>
-            <a href="portafolio.html" class="navbar-link" data-nav="portafolio">Portafolio</a>
-          </nav>
+      <div class="navbar-right">
+        <nav class="navbar-nav" aria-label="Navegación principal">
+          <a href="index.html" class="navbar-link" data-nav="home">Inicio</a>
+          <a href="nosotros.html" class="navbar-link" data-nav="nosotros">Nosotros</a>
+          <a href="eventos.html" class="navbar-link" data-nav="eventos">Eventos</a>
+          <a href="portafolio.html" class="navbar-link" data-nav="portafolio">Portafolio</a>
+          <div class="navbar-dropdown" data-nav-group="servicios">
+            <a
+              href="servicios.html"
+              class="navbar-link navbar-link--dropdown"
+              data-nav="servicios"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span>Servicios</span>
+              <svg class="navbar-link__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
 
-          <a href="contacto.html" class="navbar-cta">Cotizar Evento</a>
-
-          <button
-            class="navbar-hamburger"
-            id="navbar-hamburger"
-            aria-label="Abrir menú"
-            aria-expanded="false"
-            type="button"
-          >
-            <span class="navbar-hamburger__lines">
-              <span class="navbar-hamburger__line"></span>
-              <span class="navbar-hamburger__line"></span>
-              <span class="navbar-hamburger__line"></span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Mobile drawer -->
-    <div
-      class="navbar-mobile-drawer"
-      id="navbar-mobile-drawer"
-      aria-hidden="true"
-      role="dialog"
-      aria-label="Menú de navegación"
-    >
-      <div class="navbar-mobile-drawer__inner">
-        <nav class="navbar-mobile-drawer__nav" aria-label="Navegación principal móvil">
-          <a href="index.html" class="navbar-mobile-drawer__link" data-nav="home">Inicio</a>
-          <a href="nosotros.html" class="navbar-mobile-drawer__link" data-nav="nosotros">Nosotros</a>
-          <a href="servicios.html" class="navbar-mobile-drawer__link" data-nav="servicios">Servicios</a>
-          <a href="eventos.html" class="navbar-mobile-drawer__link" data-nav="eventos">Eventos</a>
-          <a href="portafolio.html" class="navbar-mobile-drawer__link" data-nav="portafolio">Portafolio</a>
+            <div class="navbar-dropdown-menu" role="menu" aria-label="Submenú de servicios">
+              <a href="servicios.html" class="navbar-dropdown-menu__link navbar-dropdown-menu__link--all" role="menuitem">
+                Ver Todos los Servicios
+              </a>
+              <a href="servicio-detalle.html?slug=iluminacion-profesional" class="navbar-dropdown-menu__link" role="menuitem">Iluminación Profesional</a>
+              <a href="servicio-detalle.html?slug=sonido-de-alta-fidelidad" class="navbar-dropdown-menu__link" role="menuitem">Sonido de Alta Fidelidad</a>
+              <a href="servicio-detalle.html?slug=pantallas-led-y-proyeccion" class="navbar-dropdown-menu__link" role="menuitem">Pantallas LED y Proyección</a>
+              <a href="servicio-detalle.html?slug=fotografia-profesional" class="navbar-dropdown-menu__link" role="menuitem">Fotografía Profesional</a>
+              <a href="servicio-detalle.html?slug=video-y-produccion-audiovisual" class="navbar-dropdown-menu__link" role="menuitem">Video y Producción Audiovisual</a>
+              <a href="servicio-detalle.html?slug=streaming-y-transmision" class="navbar-dropdown-menu__link" role="menuitem">Streaming y Transmisión</a>
+              <a href="servicio-detalle.html?slug=tarimas-y-escenografia" class="navbar-dropdown-menu__link" role="menuitem">Tarimas y Escenografía</a>
+              <a href="servicio-detalle.html?slug=generacion-electrica" class="navbar-dropdown-menu__link" role="menuitem">Generación Eléctrica</a>
+              <a href="servicio-detalle.html?slug=logistica-y-coordinacion" class="navbar-dropdown-menu__link" role="menuitem">Logística y Coordinación</a>
+            </div>
+          </div>
         </nav>
 
-        <a href="contacto.html" class="navbar-mobile-drawer__cta">Cotizar Evento</a>
+        <a href="contacto.html" class="navbar-cta">Cotizar Evento</a>
+
+        <button
+          class="navbar-hamburger"
+          id="navbar-hamburger"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          type="button"
+        >
+          <span class="navbar-hamburger__lines">
+            <span class="navbar-hamburger__line"></span>
+            <span class="navbar-hamburger__line"></span>
+            <span class="navbar-hamburger__line"></span>
+          </span>
+        </button>
       </div>
     </div>
-  `;
+  </header>
+
+  <div
+    class="navbar-mobile-drawer"
+    id="navbar-mobile-drawer"
+    aria-hidden="true"
+    role="dialog"
+    aria-label="Menú de navegación"
+  >
+    <div class="navbar-mobile-drawer__inner">
+      <nav class="navbar-mobile-drawer__nav" aria-label="Navegación principal móvil">
+        <a href="index.html" class="navbar-mobile-drawer__link" data-nav="home">Inicio</a>
+        <a href="nosotros.html" class="navbar-mobile-drawer__link" data-nav="nosotros">Nosotros</a>
+
+        <div class="navbar-mobile-submenu" data-mobile-submenu="servicios">
+          <button
+            class="navbar-mobile-submenu__toggle navbar-mobile-drawer__link"
+            type="button"
+            aria-expanded="false"
+          >
+            <span>Servicios</span>
+            <svg class="navbar-mobile-submenu__caret" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="navbar-mobile-submenu__panel" aria-hidden="true">
+            <a href="servicios.html" class="navbar-mobile-submenu__link">Ver Todos los Servicios</a>
+            <a href="servicio-detalle.html?slug=iluminacion-profesional" class="navbar-mobile-submenu__link">Iluminación Profesional</a>
+            <a href="servicio-detalle.html?slug=sonido-de-alta-fidelidad" class="navbar-mobile-submenu__link">Sonido de Alta Fidelidad</a>
+            <a href="servicio-detalle.html?slug=pantallas-led-y-proyeccion" class="navbar-mobile-submenu__link">Pantallas LED y Proyección</a>
+            <a href="servicio-detalle.html?slug=fotografia-profesional" class="navbar-mobile-submenu__link">Fotografía Profesional</a>
+            <a href="servicio-detalle.html?slug=video-y-produccion-audiovisual" class="navbar-mobile-submenu__link">Video y Producción Audiovisual</a>
+            <a href="servicio-detalle.html?slug=streaming-y-transmision" class="navbar-mobile-submenu__link">Streaming y Transmisión</a>
+            <a href="servicio-detalle.html?slug=tarimas-y-escenografia" class="navbar-mobile-submenu__link">Tarimas y Escenografía</a>
+            <a href="servicio-detalle.html?slug=generacion-electrica" class="navbar-mobile-submenu__link">Generación Eléctrica</a>
+            <a href="servicio-detalle.html?slug=logistica-y-coordinacion" class="navbar-mobile-submenu__link">Logística y Coordinación</a>
+          </div>
+        </div>
+
+        <a href="eventos.html" class="navbar-mobile-drawer__link" data-nav="eventos">Eventos</a>
+        <a href="portafolio.html" class="navbar-mobile-drawer__link" data-nav="portafolio">Portafolio</a>
+      </nav>
+
+      <a href="contacto.html" class="navbar-mobile-drawer__cta">Cotizar Evento</a>
+    </div>
+  </div>
+`;
 
   const FOOTER_HTML = `
     <footer class="site-footer" role="contentinfo">
@@ -184,7 +237,12 @@ window.DiexComponents = (() => {
       return "eventos";
     if (path.endsWith("/nosotros.html") || path.includes("nosotros.html"))
       return "nosotros";
-    if (path.endsWith("/servicios.html") || path.includes("servicios.html"))
+    if (
+      path.endsWith("/servicios.html") ||
+      path.includes("servicios.html") ||
+      path.endsWith("/servicio-detalle.html") ||
+      path.includes("servicio-detalle.html")
+    )
       return "servicios";
     if (path.endsWith("/portafolio.html") || path.includes("portafolio.html"))
       return "portafolio";
@@ -213,6 +271,37 @@ window.DiexComponents = (() => {
       }
     });
 
+    const currentPath = window.location.pathname.toLowerCase();
+    const currentQuery = window.location.search.toLowerCase();
+    const currentFull = `${currentPath}${currentQuery}`;
+
+    const isSameLink = (href) => {
+      if (!href) return false;
+      return (
+        currentFull.endsWith(href.toLowerCase()) ||
+        currentFull.includes(href.toLowerCase())
+      );
+    };
+
+    const desktopSubmenuLinks = placeholder.querySelectorAll(
+      ".navbar-dropdown-menu__link",
+    );
+    desktopSubmenuLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      const isActiveSubitem = isSameLink(href);
+
+      link.classList.toggle(
+        "navbar-dropdown-menu__link--active",
+        isActiveSubitem,
+      );
+
+      if (isActiveSubitem) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
     // Mobile active
     const mobileLinks = document.querySelectorAll(
       ".navbar-mobile-drawer__link",
@@ -226,6 +315,87 @@ window.DiexComponents = (() => {
         link.removeAttribute("aria-current");
       }
     });
+
+    const mobileSubmenuLinks = placeholder.querySelectorAll(
+      ".navbar-mobile-submenu__link",
+    );
+
+    mobileSubmenuLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      const isActiveSubitem = isSameLink(href);
+
+      link.classList.toggle(
+        "navbar-mobile-submenu__link--active",
+        isActiveSubitem,
+      );
+
+      if (isActiveSubitem) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    const mobileServicesToggle = placeholder.querySelector(
+      ".navbar-mobile-submenu__toggle",
+    );
+    const mobileServicesSubmenu = placeholder.querySelector(
+      '[data-mobile-submenu="servicios"]',
+    );
+    const mobileServicesPanel = placeholder.querySelector(
+      ".navbar-mobile-submenu__panel",
+    );
+
+    if (mobileServicesToggle && mobileServicesSubmenu && mobileServicesPanel) {
+      const isServicesSection = current === "servicios";
+
+      mobileServicesToggle.classList.toggle(
+        "navbar-mobile-drawer__link--active",
+        isServicesSection,
+      );
+
+      if (isServicesSection) {
+        mobileServicesToggle.setAttribute("aria-current", "page");
+        mobileServicesSubmenu.classList.add("is-open");
+        mobileServicesToggle.setAttribute("aria-expanded", "true");
+        mobileServicesPanel.setAttribute("aria-hidden", "false");
+      } else {
+        mobileServicesToggle.removeAttribute("aria-current");
+        mobileServicesSubmenu.classList.remove("is-open");
+        mobileServicesToggle.setAttribute("aria-expanded", "false");
+        mobileServicesPanel.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    const desktopDropdown = placeholder.querySelector(
+      '[data-nav-group="servicios"]',
+    );
+    const desktopDropdownTrigger = placeholder.querySelector(
+      ".navbar-link--dropdown",
+    );
+
+    if (desktopDropdown && desktopDropdownTrigger) {
+      const setDesktopDropdown = (isOpen) => {
+        desktopDropdown.classList.toggle("is-open", isOpen);
+        desktopDropdownTrigger.setAttribute("aria-expanded", String(isOpen));
+      };
+
+      desktopDropdown.addEventListener("mouseenter", () =>
+        setDesktopDropdown(true),
+      );
+      desktopDropdown.addEventListener("mouseleave", () =>
+        setDesktopDropdown(false),
+      );
+
+      desktopDropdown.addEventListener("focusin", () =>
+        setDesktopDropdown(true),
+      );
+      desktopDropdown.addEventListener("focusout", (e) => {
+        if (!desktopDropdown.contains(e.relatedTarget)) {
+          setDesktopDropdown(false);
+        }
+      });
+    }
 
     // Scroll: transparente → oscuro
     const navbar = placeholder.querySelector(".navbar");
@@ -254,7 +424,35 @@ window.DiexComponents = (() => {
         document.body.classList.remove("mobile-menu-open");
         navbar.classList.remove("mobile-menu-active");
         hamburger.setAttribute("aria-label", "Abrir menú");
+        closeMobileSubmenu();
       };
+
+      const mobileSubmenu = drawer.querySelector(
+        '[data-mobile-submenu="servicios"]',
+      );
+      const mobileSubmenuToggle = drawer.querySelector(
+        ".navbar-mobile-submenu__toggle",
+      );
+      const mobileSubmenuPanel = drawer.querySelector(
+        ".navbar-mobile-submenu__panel",
+      );
+
+      const closeMobileSubmenu = () => {
+        if (!mobileSubmenu || !mobileSubmenuToggle || !mobileSubmenuPanel)
+          return;
+        mobileSubmenu.classList.remove("is-open");
+        mobileSubmenuToggle.setAttribute("aria-expanded", "false");
+        mobileSubmenuPanel.setAttribute("aria-hidden", "true");
+      };
+
+      if (mobileSubmenu && mobileSubmenuToggle && mobileSubmenuPanel) {
+        mobileSubmenuToggle.addEventListener("click", () => {
+          const isOpen = !mobileSubmenu.classList.contains("is-open");
+          mobileSubmenu.classList.toggle("is-open", isOpen);
+          mobileSubmenuToggle.setAttribute("aria-expanded", String(isOpen));
+          mobileSubmenuPanel.setAttribute("aria-hidden", String(!isOpen));
+        });
+      }
 
       hamburger.addEventListener("click", () => {
         const isOpen = !drawer.classList.contains("is-open");
