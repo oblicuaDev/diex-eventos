@@ -344,6 +344,7 @@ main {
   text-decoration: none;
   font-size: 0.96rem;
   line-height: 1;
+  border-radius: 0;
   transition:
     background 0.2s ease,
     color 0.2s ease;
@@ -354,6 +355,20 @@ main {
 .navbar-dropdown-menu__link--active {
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-molten-orange);
+}
+
+.navbar-dropdown-menu__link:first-child:hover,
+.navbar-dropdown-menu__link:first-child:focus-visible,
+.navbar-dropdown-menu__link:first-child.navbar-dropdown-menu__link--active {
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+
+.navbar-dropdown-menu__link:last-child:hover,
+.navbar-dropdown-menu__link:last-child:focus-visible,
+.navbar-dropdown-menu__link:last-child.navbar-dropdown-menu__link--active {
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
 }
 
 .navbar-dropdown-menu__link--active {
