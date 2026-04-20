@@ -73,7 +73,8 @@ window.DiexComponents = (() => {
       <nav class="navbar-mobile-drawer__nav" aria-label="Navegación principal móvil">
         <a href="index.html" class="navbar-mobile-drawer__link" data-nav="home">Inicio</a>
         <a href="nosotros.html" class="navbar-mobile-drawer__link" data-nav="nosotros">Nosotros</a>
-
+        <a href="eventos.html" class="navbar-mobile-drawer__link" data-nav="eventos">Eventos</a>
+        <a href="portafolio.html" class="navbar-mobile-drawer__link" data-nav="portafolio">Portafolio</a>
         <div class="navbar-mobile-submenu" data-mobile-submenu="servicios">
           <button
             class="navbar-mobile-submenu__toggle navbar-mobile-drawer__link"
@@ -99,9 +100,6 @@ window.DiexComponents = (() => {
             <a href="servicio-detalle.html?slug=logistica-y-coordinacion" class="navbar-mobile-submenu__link">Logística y Coordinación</a>
           </div>
         </div>
-
-        <a href="eventos.html" class="navbar-mobile-drawer__link" data-nav="eventos">Eventos</a>
-        <a href="portafolio.html" class="navbar-mobile-drawer__link" data-nav="portafolio">Portafolio</a>
       </nav>
 
       <a href="contacto.html" class="navbar-mobile-drawer__cta">Cotizar Evento</a>
