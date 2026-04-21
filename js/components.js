@@ -232,7 +232,7 @@ window.DiexComponents = (() => {
       path.endsWith("/evento-detalle.html") ||
       path.includes("evento-detalle.html")
     )
-      return "eventos";
+      return "portafolio";
     if (path.endsWith("/nosotros.html") || path.includes("nosotros.html"))
       return "nosotros";
     if (
